@@ -9,7 +9,7 @@ void main()
 	int i=0,ls,sum=0;
 	ask();		
 
-	if(crd<=0)
+	while(crd<=0)
 	{
 	printf("Retry :\n");
 	ask();
