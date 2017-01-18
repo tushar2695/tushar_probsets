@@ -1,18 +1,19 @@
 #include<stdio.h>
 
-void ask();
-long long int crd;
 void main()
 {
 
-	long long int temp;
-	int i=0,ls,sum=0;
-	ask();		
+	long long int temp,crd;
+	int i=0,ls,sum=0,count=0;
+
+	printf("Enter card no.\n");
+	scanf("%lld",&crd);	
+	
 
 	while(crd<=0)
 	{
-	printf("Retry :\n");
-	ask();
+		printf("Retry :\n");
+		scanf("%lld",&crd);
 	}
 
 	temp=crd;
@@ -21,7 +22,6 @@ void main()
 	{
 		ls=temp%10;
 		temp=temp/10;
-		
 		
 		if(i%2==0)
 		{
@@ -36,14 +36,13 @@ void main()
 				ls=(ls/10)+(ls%10);
 			}	
 		
-		sum=sum+ls;
+			sum=sum+ls;
 		}
-	i++;
+		i++;
 	}
 	
 	sum=sum+temp;
-
-	printf("\n%d\n",sum);
+	printf("%d\n",sum);
 
 	if(sum%10==0)
 	printf("\nvalid card nunmber\n");
@@ -51,11 +50,28 @@ void main()
 	else
 	printf("card no. not valid\n");
 
-}
+	temp=crd;
+	while(temp>=100)
+	{
+		temp=temp/10;
+		count++;
+	}
+	
+	if(count==13)
+	{
 
-void ask()
-{
-	printf("Enter the card no. :\n");
-	scanf("%lld",&crd);
+		switch(temp)
+		{
+			case 51:
+			printf("American\n");
+			break;
+	
+			case 37:
+			printf("Amex\n");
+			break;
+	
+			default:
+			printf("Unknown card\n"); 
+		}
+	}
 }
-
